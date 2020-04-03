@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <h1>Module 5</h1>
+    <h2>
+      <script type="text/javascript">
+      var rightNow = new Date();
+      document.write(rightNow)
+      </script>
+    </h2>
+  </head>
+
+  <body>
+
+    <h2>Function 1</h2>
+
+    <p>Write a string and I'll write it in reverse</p>
+
+      <form>
+
+        <input id="str" type="string" size="4">
+
+        <input type="button" value="Reverse" onClick="calc();">
+
+      </form>
+
+    <div id="target"></div>
+
+    <h2>Function 2</h2>
+
+    <p>Create table of multiples</p>
+
+      <form>
+
+        <input id="num" type="number" size="4">
+
+        <input type="button" value="Click" onClick="calc2();">
+
+      </form>
+
+    <div id="table"></div>
+
+  </body>
+
+</html>
+
+<script type="text/javascript">
+
+//  FIRST FUNCTION (REVERSE STRING)
+
+    function reverseStr(str) {
+        var splitString = str.split("");
+        var reverseArray = splitString.reverse();
+        var joinArray = reverseArray.join("");
+        return (joinArray);
+    };
+
+    function calc(){
+        var t = document.getElementById("target");
+        t.innerHTML = reverseStr(document.getElementById('str').value);
+    }
+
+//  SECOND FUNCTION (MULTIPLES TABLE)
+
+    function createTable(num){
+      document.write("<table border='1px'>");
+      document.write("<tr style=''>");
+      var count = 1;
+      for(i = 1; i < 6; i++)
+      {
+        for(j = 1; j < 5; j++)
+        {
+          document.write("<th>"+(num*count)+"</th>");
+          var count = count + 1;
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    };
+
+    function calc2(){
+        var t = document.getElementById("table");
+        t.innerHTML = createTable(document.getElementById('num').value);
+    }
+
+</script>
